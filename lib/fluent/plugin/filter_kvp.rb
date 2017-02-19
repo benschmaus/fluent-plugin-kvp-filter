@@ -18,6 +18,10 @@ module Fluent::Plugin
       super
     end
 
+    def compiled_pattern
+      @compiled_pattern ||= Regexp.new(pattern)
+    end
+
     def filter(tag, time, record)
       source = record[parse_key].to_s
       target = fields_key ? (record[fields_key] ||= {}) : record
