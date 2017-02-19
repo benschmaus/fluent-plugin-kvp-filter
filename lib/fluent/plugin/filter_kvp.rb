@@ -1,10 +1,10 @@
 require 'fluent/time'
 require 'fluent/config/error'
 require 'fluent/plugin/filter'
-require "logfmt"
+require 'logfmt'
 
 module Fluent::Plugin
-  class ParserFilter < Filter
+  class KVPFilter < Filter
     Fluent::Plugin.register_filter('kvp', self)
 
     config_param :parse_key,          :string, :default => 'message'

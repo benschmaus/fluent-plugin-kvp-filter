@@ -1,24 +1,24 @@
-# fluent-plugin-fields-parser [![Build Status](https://travis-ci.org/tomas-zemres/fluent-plugin-fields-parser.png)](https://travis-ci.org/tomas-zemres/fluent-plugin-fields-parser)
+# fluent-plugin-kvp-filter [![Build Status](https://travis-ci.org/matt-deboer/fluent-plugin-kvp-filter.png)](https://travis-ci.org/matt-deboer/fluent-plugin-kvp-filter)
 
-Fluent output filter plugin for parsing key/value fields in records
+Fluent filter plugin for parsing key/value fields in records
 based on &lt;key>=&lt;value> pattern.
+
+_Forked from [fluent-plugin-fields-parser](https://github.com/tomas-zemres/fluent-plugin-fields-parser)
+and converted to a fluentd filter type._
 
 ## Installation
 
 Use RubyGems:
 
-    gem install fluent-plugin-fields-parser
+    gem install fluent-plugin-kvp-filter
 
 ## Configuration
 
-    <match pattern>
+    <filter pattern>
         type                fields_parser
 
-        remove_tag_prefix   raw
-        add_tag_prefix      parsed
-
         strict_key_value     false
-    </match>
+    </filter>
 
 If following record is passed:
 
@@ -41,24 +41,37 @@ then you will get a new record:
 
 For configuration
 
-    <match pattern>
+    <filter pattern>
         type        fields_parser
 
         parse_key   log_message
-    </match>
+    </filter>
 
 it parses key "log_message" instead of default key `message`.
+
+### Parameter remove_parse_key
+
+For configuration
+
+    <filter pattern>
+        type                fields_parser
+
+        parse_key           log_message
+        remove_parse_key    true
+    </filter>
+
+it will remove the key "log_message" after parsing/extracting key/value pairs from it.
 
 ### Parameter fields_key
 
 Configuration
 
-    <match pattern>
+    <filter pattern>
         type        fields_parser
 
         parse_key   log_message
         fields_key  fields
-    </match>
+    </filter>
 
 For input like:
 
@@ -85,11 +98,11 @@ You can define custom pattern (regexp) for seaching keys/values.
 
 Configuration
 
-    <match pattern>
+    <filter pattern>
         type        fields_parser
 
         pattern     (\w+):(\d+)
-    </match>
+    </filter>
 
 For input like:
 ```
@@ -104,26 +117,13 @@ it returns:
 }
 ```
 
-### Tag prefix
-
-You cat add and/or remove tag prefix using Configuration parameters
-
-    <match pattern>
-        type                fields_parser
-
-        remove_tag_prefix   raw
-        add_tag_prefix      parsed
-    </match>
-
-If it matched tag "raw.some.record", then it emits tag "parsed.some.record".
-
 ### Parameter strict_key_value
 
 ```
-    <match pattern>
+    <filter pattern>
         type                fields_parser
         strict_key_value   true
-    </match>
+    </filter>
 ```
 
 If `strict_key_value` is set to `true`, the parser will use the [ruby logfmt
