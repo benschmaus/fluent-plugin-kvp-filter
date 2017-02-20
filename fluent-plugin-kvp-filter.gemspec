@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
   gem.description   = "Fluent filter plugin for parsing key/value fields in records"
   gem.homepage      = "https://github.com/matt-deboer/fluent-plugin-kvp-filter"
   gem.summary       = gem.description
-  gem.version       = %x[git describe --tags --always]
+  gem.version       = %x[git describe --tags --always | sed -E 's/-([0-9])-.*/.a\1/']
   gem.authors       = ["Matt DeBoer"]
   gem.email         = ["matt.deboer@gmail.com"]
   gem.has_rdoc      = false
