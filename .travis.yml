@@ -1,4 +1,12 @@
 language: ruby
 rvm:
-    - 2.2
-    - 2.1
+- 2.2
+- 2.1
+deploy:
+  provider: rubygems
+  api_key:
+    secure: Nl+oGHjLKpqh6xizIS6KKD4NofFDx5nvCI1psCXg5KCBl1cZQ6mZwMeqJYonrW3NgCpDHgTG0uImiRg6bAmzE4KC5zja6aDZ3jFzWjOa84vnnvwkzRKxbVwuN+Au5+wUGZQUS6T8WROA+AHO/WNYmfHEOvP9qcb56AGzIM7qFL88hoTDGnnOUOs6WEIc5TLmAu6h+/YccEwWrYw+6DYJ9zgZpl7HeOZsMO9vLrq8ud/s3dub1syTlMx9xZ4cqNEvTpMIPNWGx1W35EDbXMcWLbE6KLPxdlfHwk9rY6Kv9qHMH0FROvuiW9uSf/OQiIrOb1+ym+TOWO5sKAGsbgWOdp7rakQ1n6dP1nt3qJJW67Omldv518u+2t2uIyK8I6N4A4+Uk8jMZOUOBdyA6chpa/0btUM0KqG9qeUYS/Z4P0KSo1nabVaLgrAeUbdhTUo+jl2bU0kXmOtnMxrJ3N1f6iTt3aDKjJvV7tC1qbGtsk0IMq9wGTccCbBiBMQnnHguQ/MXEmvSA6l93e9sr8RjWUuJF70xr3n4OYgnfcvekhNKoznukMI7XascM2iQYw6hlKE7sD3b9tyfbdlM45Ak2XaIjzqQlM4296K2/0Q4lzwM2ijqeN2UhNUJAol9/o5xNwxwd/kmPgvqRkD5CCdtRlfQfAPFp8X00rkSEjpTcuk=
+  gem: fluent-plugin-kvp-filter
+  on:
+    tags: true
+    repo: matt-deboer/fluent-plugin-kvp-filter

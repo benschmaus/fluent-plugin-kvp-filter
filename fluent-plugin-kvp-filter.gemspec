@@ -4,9 +4,9 @@ $:.push File.expand_path('../lib', __FILE__)
 Gem::Specification.new do |gem|
   gem.name          = "fluent-plugin-kvp-filter"
   gem.description   = "Fluent filter plugin for parsing key/value fields in records"
-  gem.homepage      = "https://github.com/matt-deboer/fluent-plugin-fields-parser"
+  gem.homepage      = "https://github.com/matt-deboer/fluent-plugin-kvp-filter"
   gem.summary       = gem.description
-  gem.version       = File.read("VERSION").strip
+  gem.version       = "#{ENV['TRAVIS_BRANCH']}"
   gem.authors       = ["Matt DeBoer"]
   gem.email         = ["matt.deboer@gmail.com"]
   gem.has_rdoc      = false
