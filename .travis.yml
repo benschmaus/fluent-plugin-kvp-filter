@@ -5,13 +5,19 @@ rvm:
 deploy:
   provider: script
   script: .travis/deploy.sh
-  # provider: rubygems
-  # api_key:
-  #   secure: Nl+oGHjLKpqh6xizIS6KKD4NofFDx5nvCI1psCXg5KCBl1cZQ6mZwMeqJYonrW3NgCpDHgTG0uImiRg6bAmzE4KC5zja6aDZ3jFzWjOa84vnnvwkzRKxbVwuN+Au5+wUGZQUS6T8WROA+AHO/WNYmfHEOvP9qcb56AGzIM7qFL88hoTDGnnOUOs6WEIc5TLmAu6h+/YccEwWrYw+6DYJ9zgZpl7HeOZsMO9vLrq8ud/s3dub1syTlMx9xZ4cqNEvTpMIPNWGx1W35EDbXMcWLbE6KLPxdlfHwk9rY6Kv9qHMH0FROvuiW9uSf/OQiIrOb1+ym+TOWO5sKAGsbgWOdp7rakQ1n6dP1nt3qJJW67Omldv518u+2t2uIyK8I6N4A4+Uk8jMZOUOBdyA6chpa/0btUM0KqG9qeUYS/Z4P0KSo1nabVaLgrAeUbdhTUo+jl2bU0kXmOtnMxrJ3N1f6iTt3aDKjJvV7tC1qbGtsk0IMq9wGTccCbBiBMQnnHguQ/MXEmvSA6l93e9sr8RjWUuJF70xr3n4OYgnfcvekhNKoznukMI7XascM2iQYw6hlKE7sD3b9tyfbdlM45Ak2XaIjzqQlM4296K2/0Q4lzwM2ijqeN2UhNUJAol9/o5xNwxwd/kmPgvqRkD5CCdtRlfQfAPFp8X00rkSEjpTcuk=
-  # gemspec: fluent-plugin-kvp-filter.gemspec
   on:
     tags: true
     repo: matt-deboer/fluent-plugin-kvp-filter
+
+# deploy:
+#   provider: rubygems
+#   api_key:
+#     secure: Nl+oGHjLKpqh6xizIS6KKD4NofFDx5nvCI1psCXg5KCBl1cZQ6mZwMeqJYonrW3NgCpDHgTG0uImiRg6bAmzE4KC5zja6aDZ3jFzWjOa84vnnvwkzRKxbVwuN+Au5+wUGZQUS6T8WROA+AHO/WNYmfHEOvP9qcb56AGzIM7qFL88hoTDGnnOUOs6WEIc5TLmAu6h+/YccEwWrYw+6DYJ9zgZpl7HeOZsMO9vLrq8ud/s3dub1syTlMx9xZ4cqNEvTpMIPNWGx1W35EDbXMcWLbE6KLPxdlfHwk9rY6Kv9qHMH0FROvuiW9uSf/OQiIrOb1+ym+TOWO5sKAGsbgWOdp7rakQ1n6dP1nt3qJJW67Omldv518u+2t2uIyK8I6N4A4+Uk8jMZOUOBdyA6chpa/0btUM0KqG9qeUYS/Z4P0KSo1nabVaLgrAeUbdhTUo+jl2bU0kXmOtnMxrJ3N1f6iTt3aDKjJvV7tC1qbGtsk0IMq9wGTccCbBiBMQnnHguQ/MXEmvSA6l93e9sr8RjWUuJF70xr3n4OYgnfcvekhNKoznukMI7XascM2iQYw6hlKE7sD3b9tyfbdlM45Ak2XaIjzqQlM4296K2/0Q4lzwM2ijqeN2UhNUJAol9/o5xNwxwd/kmPgvqRkD5CCdtRlfQfAPFp8X00rkSEjpTcuk=
+#   gemspec: fluent-plugin-kvp-filter.gemspec
+#   on:
+#     tags: true
+#     repo: matt-deboer/fluent-plugin-kvp-filter
+
 env:
   global:
   - secure: bDv6wW3RpvXJJlEkMXPpqRBdmU9lOhXMf+x9znF2jXu7BEJQAb8ZsVJCJCbz2iTGan5/GdThhW3kKDjZz8bGlQP6J8j3lJmeQyGp1CW3DQBvHnoYruoqFdeycfgrf1E32ce97yQtw9/GNkb8dLAl309M+gUwk6UPZNgC62qohzXhSDU1eAuPZ5ad/uZ3uYtfgTY7IWpTycMP0dSm8kVr9lJADshRCP2iKf7op/5r9EiL/VU/XhXMT+2FqhD9t/YfdQsJlXo4JWvSoStPWO+YC6+rZ+vO6ovWMMxD6HYBPZUZqF4/KQXtggduHjQs9ogidG6rkEvBGKg/EfqnmeAHw/auEr38H0PGDwkuT8go332w2TwxLWdonpdYdJ77xG8Z4Sq+pQNCQX0papHgg4vGuWUjcRFIPufUBcTTwUnbRj4Dum92Q1NkBy4bgF/ZE4W1tEmjWZxxXhz790q05tWQv7Ng4mbCsnboV0K0JmBDl8tNZ7OAzQFadmorBea/dLQQbQbB383vPpbSAEABXyIlIpzoZmWAqvjWTngyTGuOIFW1lNG9G0rf+XDkus1+j6sZZQ5c3BZOm/C2fmaf4rPbe3qAiSUM2zpantiCsdn4zzS7LznWYADIgPZ2BJ/6bwtQYH45VhR+R6aG87oxTNO7wm6Iw1pSePZnPKGyWF0NEuM=
