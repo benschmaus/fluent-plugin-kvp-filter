@@ -11,8 +11,9 @@ module Fluent::Plugin
     config_param :fields_key,         :string, :default => nil
     config_param :pattern,            :string,
                  :default => %{([a-zA-Z_]\\w*)=((['"]).*?(\\3)|[\\w.@$%/+-]*)}
-    config_param :strict_key_value,  :bool, :default => false
-    config_param :remove_parse_key,  :bool, :default => false
+    config_param :strict_key_value,   :bool, :default => false
+    config_param :remove_parse_key,   :bool, :default => false
+    config_param :unmatched_key,      :string, :default => nil
 
     def configure(conf)
       super
@@ -40,11 +41,15 @@ module Fluent::Plugin
           from_pos = begining_quote.to_s.length
           to_pos = value.length - ending_quote.to_s.length - 1
           target[key] = value[from_pos..to_pos]
-          unmatched = unmatched.gsub("#{key}=#{value}", "")
+          unless unmatched_key.nil?
+            unmatched = unmatched.gsub("#{key}=#{value}", "")
+          end
         end
-        unmatched = unmatched.strip
-        unless unmatched.empty?
-          target['_unmatched'] = unmatched
+        unless unmatched_key.nil?
+          unmatched = unmatched.strip
+          unless unmatched.empty?
+            target[unmatched_key] = unmatched
+          end
         end
       end
 

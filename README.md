@@ -62,6 +62,20 @@ For configuration
 
 it will remove the key "log_message" after parsing/extracting key/value pairs from it.
 
+### Parameter unmatched_key
+
+For configuration
+
+    <filter pattern>
+        type                fields_parser
+
+        parse_key           log_message
+        unmatched_key       _unmatched
+    </filter>
+
+if any portion of "log_message" is not matched, it will be added to the record under "_unmatched"
+
+
 ### Parameter fields_key
 
 Configuration
