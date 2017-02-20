@@ -31,6 +31,7 @@ module Fluent::Plugin
         parsed = Logfmt.parse(source)
         target.merge!(parsed)
       else
+        unmatched = source
         source.scan(compiled_pattern) do |match|
           (key, value, begining_quote, ending_quote) = match
           next if key.nil?
@@ -39,6 +40,11 @@ module Fluent::Plugin
           from_pos = begining_quote.to_s.length
           to_pos = value.length - ending_quote.to_s.length - 1
           target[key] = value[from_pos..to_pos]
+          unmatched.gsub!("#{key}=#{value}", "")
+        end
+        unmatched.strip!
+        unless unmatched.empty?
+          target['_unmatched'] = unmatched
         end
       end
 
