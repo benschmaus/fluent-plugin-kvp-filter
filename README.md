@@ -1,4 +1,4 @@
-# fluent-plugin-kvp-filter [![Build Status](https://travis-ci.org/matt-deboer/fluent-plugin-kvp-filter.png)](https://travis-ci.org/matt-deboer/fluent-plugin-kvp-filter)
+# fluent-plugin-kvp-filter [![Build Status](https://travis-ci.org/matt-deboer/fluent-plugin-kvp-filter.png)](https://travis-ci.org/matt-deboer/fluent-plugin-kvp-filter) [![Gem Version](https://badge.fury.io/rb/fluent-plugin-kvp-filter.svg)](https://badge.fury.io/rb/fluent-plugin-kvp-filter)
 
 Fluent filter plugin for parsing key/value fields in records
 based on &lt;key>=&lt;value> pattern.
