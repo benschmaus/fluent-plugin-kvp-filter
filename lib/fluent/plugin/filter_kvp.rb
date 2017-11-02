@@ -10,7 +10,7 @@ module Fluent::Plugin
     config_param :parse_key,          :string, :default => 'message'
     config_param :fields_key,         :string, :default => nil
     config_param :pattern,            :string,
-                 :default => %{([a-zA-Z_]\\w*)=((['"]).*?(\\3)|[\\w.@$%/+-]*)}
+                 :default => %{([a-zA-Z_-]\\w*)=((['"]).*?(\\3)|[\\w.@$%/+-]*)}
     config_param :strict_key_value,   :bool, :default => false
     config_param :remove_parse_key,   :bool, :default => false
     config_param :unmatched_key,      :string, :default => nil
